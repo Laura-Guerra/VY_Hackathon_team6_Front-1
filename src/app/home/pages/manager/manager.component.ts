@@ -25,15 +25,15 @@ export class ManagerComponent implements OnInit {
 
   formatData(): any{
     const data = {
-    Jardinera: {
+    JARDINERA: {
         fullTime: this.contractualConditionsForm.controls['jardineraFull'].value,
         partTime: this.contractualConditionsForm.controls['jardineraPart'].value
     },
-    Equipaje: {
+    EQUIPAJE: {
         fullTime: this.contractualConditionsForm.controls['equipajeFull'].value,
         partTime: this.contractualConditionsForm.controls['equipajePart'].value
     },
-    Coordinacion: {
+    COORDINACION: {
         fullTime: this.contractualConditionsForm.controls['coordFull'].value,
         partTime: this.contractualConditionsForm.controls['coordPart'].value
     }}
