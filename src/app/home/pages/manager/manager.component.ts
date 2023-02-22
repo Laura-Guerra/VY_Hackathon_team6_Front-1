@@ -37,7 +37,6 @@ export class ManagerComponent implements OnInit {
         fullTime: this.contractualConditionsForm.controls['coordFull'].value,
         partTime: this.contractualConditionsForm.controls['coordPart'].value
     }}
-    console.log(data);
     return data;
   }
 
