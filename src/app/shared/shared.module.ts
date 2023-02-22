@@ -18,6 +18,7 @@ import { Error404Component } from './error404/error404.component';
 import { LoadingComponent } from './loading/loading.component';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
+import {InputNumberModule} from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [Error404Component, LoadingComponent, HeaderComponent],
@@ -37,7 +38,8 @@ import { HeaderComponent } from './header/header.component';
     FileSaverModule,
     InputTextModule,
     ProgressBarModule,
-    HeaderComponent
+    HeaderComponent,
+    InputNumberModule
   ]
 })
 export class SharedModule {}

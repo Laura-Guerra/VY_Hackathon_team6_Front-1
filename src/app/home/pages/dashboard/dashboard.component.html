@@ -1,12 +1,11 @@
 <p-table #dt [value]="dataArray" dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="10"
   [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading" [paginator]="true"
   currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [filterDelay]="0"
-  [globalFilterFields]="['hour','totalEmployees','day', 'totalCost']">
+  [globalFilterFields]="['hour', 'fullTimeEmployees', 'partTimeEmployees', 'totalEmployees','day', 'totalCost', 'handlingFuncion', 'fullTimeEmployeesCost', 'partTimeEmployeesCost']">
   <ng-template pTemplate="caption">
     <div class="table-header">
       <div class="flex">
-          <button type="button" pButton pRipple icon="pi pi-file" (click)="clickcsv()" class="mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
-          <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-success mr-2"  pTooltip="XLS" tooltipPosition="bottom"></button>
+          <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-warning mr-2"  pTooltip="XLS" tooltipPosition="bottom"></button>
       </div>
       Data days in hours
       <span class="p-input-icon-left">
