@@ -1,3 +1,14 @@
+h1{
+  text-align: center;
+}
+
+.homeButton{
+  width: 100px;
+  align-items: center;
+  border-radius: 2px;
+  margin:0 auto;
+}
+
 .fixedBottom {
     position: absolute;
     bottom: 0;
@@ -2376,7 +2387,7 @@ screen and (max-height: 500px) {
         display: none;
     }
 }
-/* 
+/*
 @media screen and (max-width: 740px),
 screen and (max-height: 500px) {
     section {

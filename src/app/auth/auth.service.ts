@@ -9,7 +9,7 @@ import { EJwt } from './models/EJwt';
 })
 export class AuthService {
 
-  uri = 'http://localhost:7227/api/User/login'; // Guardar en enviroments
+  uri = 'localhost:8080/api/authenticate'; // Guardar en enviroments
   token!: string;
 
   constructor(
@@ -19,12 +19,22 @@ export class AuthService {
 
   login(user: string, password: string) {
     const login = { email: user, password: password };
-    console.log(JSON.stringify(login))
     this.http
       .post(this.uri, JSON.stringify(login))
       .subscribe(
         (resp:any) => {
-            console.log(resp)
+            localStorage.setItem('auth_token', resp.accessToken);
+            this.router.navigate(['home']);
+        }
+      );
+  }
+
+  loginMock(user: string, password: string) {
+    this.http
+      .get("https://pastebin.com/raw/ydSY56cj")
+      .subscribe(
+        (resp:any) => {
+          console.log(resp)
             localStorage.setItem('auth_token', resp[0].accessToken);
             this.router.navigate(['home']);
         }

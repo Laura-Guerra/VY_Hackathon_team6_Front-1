@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   Login() {
     this.email = this.loginForm.controls['email'].value;
     this.password = this.loginForm.controls['password'].value;
-    this.authService.login(this.email, this.password);
+    this.authService.loginMock(this.email, this.password);
   }
 
   public get logIn(): boolean {
