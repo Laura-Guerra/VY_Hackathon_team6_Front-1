@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { DataService } from 'src/app/services/data.service';
+import { DataService } from 'src/app/home/services/data.service';
 @Component({
   selector: 'app-manager',
   templateUrl: './manager.component.html',
