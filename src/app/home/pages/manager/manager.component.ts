@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { DataService } from 'src/app/services/data.service';
-
 @Component({
   selector: 'app-manager',
   templateUrl: './manager.component.html',
-  styleUrls: ['./manager.component.scss']
+  styleUrls: ['./manager.component.scss'],
 })
 export class ManagerComponent implements OnInit {
   public contractualConditionsForm!: FormGroup;
 
-  constructor(private dataService:DataService, private formBuilder: FormBuilder){}
+  constructor(
+    private dataService: DataService,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.contractualConditionsForm = this.formBuilder.group({
@@ -23,24 +25,27 @@ export class ManagerComponent implements OnInit {
     });
   }
 
-  formatData(): any{
+  formatData(): any {
     const data = {
-    Jardinera: {
-        fullTime: this.contractualConditionsForm.controls['jardineraFull'].value,
-        partTime: this.contractualConditionsForm.controls['jardineraPart'].value
-    },
-    Equipaje: {
+      Jardinera: {
+        fullTime:
+          this.contractualConditionsForm.controls['jardineraFull'].value,
+        partTime:
+          this.contractualConditionsForm.controls['jardineraPart'].value,
+      },
+      Equipaje: {
         fullTime: this.contractualConditionsForm.controls['equipajeFull'].value,
-        partTime: this.contractualConditionsForm.controls['equipajePart'].value
-    },
-    Coordinacion: {
+        partTime: this.contractualConditionsForm.controls['equipajePart'].value,
+      },
+      Coordinacion: {
         fullTime: this.contractualConditionsForm.controls['coordFull'].value,
-        partTime: this.contractualConditionsForm.controls['coordPart'].value
-    }}
+        partTime: this.contractualConditionsForm.controls['coordPart'].value,
+      },
+    };
     return data;
   }
 
-  sendData(){
+  sendData() {
     const data = this.formatData();
     this.dataService.sendData(data);
   }

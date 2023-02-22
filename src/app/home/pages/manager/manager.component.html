@@ -1,51 +1,80 @@
-Introduzca el sueldo por hora de los empleados de jornada completa (JP) y jornada partida (JP):
 <div class="container">
-<form [formGroup]="contractualConditionsForm" (ngSubmit)="sendData()">
-  <h3>Jardinera</h3>
-  <div class="grid p-fluid">
-    <div class="col-12 md:col-5">
-      <div class="p-inputgroup">
-        <input type="number" pInputNumber placeholder="Sueldo/h jornada completa (€)" formControlName="jardineraFull"/>
+  <article>Introduzca el sueldo por hora de los empleados:</article>
+  <form [formGroup]="contractualConditionsForm" (ngSubmit)="sendData()">
+    <h2>Jardinera</h2>
+    <div class="grid p-fluid">
+      <div class="col-12 md:col-5">
+        <div class="p-inputgroup">
+          <input
+            type="number"
+            pInputNumber
+            placeholder="Sueldo/h jornada completa (€)"
+            formControlName="jardineraFull"
+          />
+        </div>
+      </div>
+
+      <div class="col-12 md:col-5">
+        <div class="p-inputgroup">
+          <input
+            type="number"
+            pInputNumber
+            placeholder="Sueldo/h jornada partida (€)"
+            formControlName="jardineraPart"
+          />
+        </div>
       </div>
     </div>
 
-    <div class="col-12 md:col-5">
-      <div class="p-inputgroup">
-        <input type="number" pInputNumber placeholder="Sueldo/h jornada partida (€)" formControlName="jardineraPart"/>
+    <h2>Equipaje</h2>
+    <div class="grid p-fluid">
+      <div class="col-12 md:col-5">
+        <div class="p-inputgroup">
+          <input
+            type="number"
+            pInputNumber
+            placeholder="Sueldo/h jornada completa (€)"
+            formControlName="equipajeFull"
+          />
+        </div>
       </div>
-    </div>
-  </div>
 
-  <h1>Equipaje</h1>
-  <div class="grid p-fluid">
-    <div class="col-12 md:col-5">
-      <div class="p-inputgroup">
-        <input type="number" pInputNumber placeholder="Sueldo/h jornada completa (€)" formControlName="equipajeFull"/>
-      </div>
-    </div>
-
-    <div class="col-12 md:col-5">
-      <div class="p-inputgroup">
-        <input type="number" pInputNumber placeholder="Sueldo/h jornada partida(€)" formControlName="equipajePart"/>
-      </div>
-    </div>
-
-  </div>
-
-  <h1>Coordinación</h1>
-  <div class="grid p-fluid">
-    <div class="col-12 md:col-5">
-      <div class="p-inputgroup">
-        <input type="number" pInputNumber placeholder="Sueldo/h jornada completa (€)" formControlName="coordFull"/>
+      <div class="col-12 md:col-5">
+        <div class="p-inputgroup">
+          <input
+            type="number"
+            pInputNumber
+            placeholder="Sueldo/h jornada partida(€)"
+            formControlName="equipajePart"
+          />
+        </div>
       </div>
     </div>
 
-    <div class="col-12 md:col-5">
-      <div class="p-inputgroup">
-        <input type="number" pInputNumber placeholder="Sueldo/h jornada partida (€)" formControlName="coordPart"/>
+    <h2>Coordinación</h2>
+    <div class="grid p-fluid">
+      <div class="col-12 md:col-5">
+        <div class="p-inputgroup">
+          <input
+            type="number"
+            pInputNumber
+            placeholder="Sueldo/h jornada completa (€)"
+            formControlName="coordFull"
+          />
+        </div>
+      </div>
+
+      <div class="col-12 md:col-5">
+        <div class="p-inputgroup">
+          <input
+            type="number"
+            pInputNumber
+            placeholder="Sueldo/h jornada partida (€)"
+            formControlName="coordPart"
+          />
+        </div>
       </div>
     </div>
-  </div>
-  <button>Enviar</button>
-</form>
+    <button>Enviar</button>
+  </form>
 </div>
