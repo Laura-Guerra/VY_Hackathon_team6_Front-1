@@ -1,4 +1,4 @@
-export enum Ejwt{
+export enum EJwt{
   id = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid",
   email = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
   name = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname",

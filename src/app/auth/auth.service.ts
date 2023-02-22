@@ -1,35 +1,34 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { ERol } from './models/Erol';
-import IUser from './models/IUser';
 import jwt_decode from 'jwt-decode';
-import { Ejwt } from './models/Ejwt';
-import { map } from 'rxjs';
+import { ERol } from './models/ERol';
+import { EJwt } from './models/EJwt';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  uri = 'https://pastebin.com/raw/fsHqkVfb'; // Guardar en enviroments
+  uri = 'localhost:8080/api/authenticate'; // Guardar en enviroments
   token!: string;
 
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-  ) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(user: string, password: string) {
-    const login = { user: user, pass: password };
+    const login = { email: user, password: password };
+    this.http.post(this.uri, JSON.stringify(login)).subscribe((resp: any) => {
+      localStorage.setItem('auth_token', resp.accessToken);
+      this.router.navigate(['home']);
+    });
+  }
+
+  loginMock(user: string, password: string) {
     this.http
-      .post(this.uri, JSON.stringify(login))
-      .subscribe(
-        (resp:any) => {
-          console.log(resp[0].accessToken);
-            localStorage.setItem('auth_token', resp[0].accessToken);
-            this.router.navigate(['home']);
-        }
-      );
+      .get('https://pastebin.com/raw/ydSY56cj')
+      .subscribe((resp: any) => {
+        console.log(resp);
+        localStorage.setItem('auth_token', resp[0].accessToken);
+        this.router.navigate(['home']);
+      });
   }
 
   islogin(): boolean {
@@ -37,7 +36,7 @@ export class AuthService {
   }
 
   isAdmin(): boolean {
-    const user: any = jwt_decode(localStorage.getItem('auth_token')!)
-    return user[Ejwt.role] == ERol.admin;
+    const user: any = jwt_decode(localStorage.getItem('auth_token')!);
+    return user[EJwt.role] == ERol.admin;
   }
 }

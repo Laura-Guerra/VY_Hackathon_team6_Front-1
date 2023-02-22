@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { DataService } from 'src/app/services/data.service';
-
 @Component({
   selector: 'app-manager',
   templateUrl: './manager.component.html',
-  styleUrls: ['./manager.component.scss']
+  styleUrls: ['./manager.component.scss'],
 })
 export class ManagerComponent implements OnInit {
   public contractualConditionsForm!: FormGroup;
 
-  constructor(private dataService:DataService, private formBuilder: FormBuilder){}
+  constructor(
+    private dataService: DataService,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.contractualConditionsForm = this.formBuilder.group({
@@ -23,7 +25,7 @@ export class ManagerComponent implements OnInit {
     });
   }
 
-  formatData(): any{
+  formatData(): any {
     const data = {
     JARDINERA: {
         fullTime: this.contractualConditionsForm.controls['jardineraFull'].value,
@@ -35,13 +37,13 @@ export class ManagerComponent implements OnInit {
     },
     COORDINACION: {
         fullTime: this.contractualConditionsForm.controls['coordFull'].value,
-        partTime: this.contractualConditionsForm.controls['coordPart'].value
-    }}
-    console.log(data);
+        partTime: this.contractualConditionsForm.controls['coordPart'].value,
+      },
+    };
     return data;
   }
 
-  sendData(){
+  sendData() {
     const data = this.formatData();
     this.dataService.sendData(data);
   }

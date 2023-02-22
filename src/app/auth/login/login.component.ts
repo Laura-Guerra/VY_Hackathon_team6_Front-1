@@ -1,12 +1,16 @@
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
-import { Validators, FormBuilder, FormControl, FormGroup,} from '@angular/forms';
-
+import {
+  Validators,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+} from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   public email = '';
@@ -15,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private formBuilder: FormBuilder,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +33,7 @@ export class LoginComponent implements OnInit {
   Login() {
     this.email = this.loginForm.controls['email'].value;
     this.password = this.loginForm.controls['password'].value;
-    this.authService.login(this.email, this.password);
+    this.authService.loginMock(this.email, this.password);
   }
 
   public get logIn(): boolean {
