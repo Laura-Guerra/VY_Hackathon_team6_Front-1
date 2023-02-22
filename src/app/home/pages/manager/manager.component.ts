@@ -31,11 +31,11 @@ export class ManagerComponent implements OnInit {
         fullTime: this.contractualConditionsForm.controls['jardineraFull'].value,
         partTime: this.contractualConditionsForm.controls['jardineraPart'].value
     },
-    EQUIPAJE: {
+    EQUIPAJES: {
         fullTime: this.contractualConditionsForm.controls['equipajeFull'].value,
         partTime: this.contractualConditionsForm.controls['equipajePart'].value
     },
-    COORDINACION: {
+    COORDINADOR: {
         fullTime: this.contractualConditionsForm.controls['coordFull'].value,
         partTime: this.contractualConditionsForm.controls['coordPart'].value,
       },
